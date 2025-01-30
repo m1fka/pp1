@@ -1,0 +1,543 @@
+/* :root {
+    --main-color: white;
+    --dop1-color: #000000;
+    --dop2-color: rgba(248, 204, 93, 0.891);
+    --dop3-color: rgb(223, 209, 255);
+} */
+
+/* html {
+    color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+    body {}
+}
+
+@media (prefers-color-scheme: light) {
+    body {}
+} */
+
+body {
+    /* will-change: transform,opacity; */
+    overflow: hidden;
+    touch-action: manipulation;
+
+    /* position: fixed; */
+    position: absolute;
+
+    /* min-height: 144px; */
+    height: 844px;
+    width: auto;
+    /* background-color: rgba(0, 0, 0, 0); */
+
+    left: 50%;
+    transform: translateX(-50%);
+    /* transform: translate(-50%,-50%); */
+
+
+    /* box-shadow:  0 0 500px 10px#646464; */
+    /* border: 1px solid #b1b1b1; */
+
+    font-family: "Montserrat", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    animation: background-filter-open 0.9s linear;
+    /* background-color: aqua; */
+}
+
+@keyframes background-filter-open {
+    0% {
+        filter: blur(40px);
+    }
+
+    100% {
+        filter: blur(0px);
+    }
+}
+
+body.change {
+    animation: background-filter-close 3.5s linear;
+}
+
+@keyframes background-filter-close {
+    50% {
+        filter: blur(0px);
+    }
+
+    100% {
+        filter: blur(40px);
+    }
+}
+
+.background-main {
+    position: absolute;
+    object-fit: cover;
+
+    z-index: -100;
+    opacity: 0.9;
+}
+/* .background-main .filter{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:100%;
+    background-color: rgba(66, 66, 66, 0.103);
+    z-index: 2000;
+    border-radius: 50px;
+} */
+
+
+
+header {
+    font-weight: 700;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    height: 100px;
+    width: 390px;
+    z-index: 500;
+}
+
+main {
+    overflow: hidden;
+
+    height: 844px;
+    padding-top: 100px;
+    box-shadow: inset 0px 0px 50px #646464e0, 0 0 500px 10px#646464;
+}
+
+/* footer{
+    height: 80px;
+
+    background-color: rgb(30, 75, 82);
+
+} */
+
+
+/* header */
+header .on-off {
+    position: absolute;
+    display: flex;
+    top: 20px;
+    left: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
+
+    border-radius: 30px;
+    width: 120px;
+    height: 60px;
+    background-color: #fafafa;
+    box-shadow: inset 4px 4px 8px #adadad, inset -4px -4px 8px #ffffff;
+
+    color: #bababa;
+    text-shadow: 0px 0px 8px #827e7e61;
+
+    font-size: 18px;
+    /* cursor: pointer; */
+}
+
+.on {
+    /* color: rgb(81, 184, 146);
+    text-shadow: 0px 0px 8px rgb(59, 141, 103); */
+
+    position: relative;
+    margin: auto;
+}
+
+.off {
+    /* color: rgb(255, 127, 127);
+    text-shadow: 0px 0px 8px rgb(255, 127, 127); */
+
+    padding-left: 4px;
+
+    position: relative;
+    margin: auto;
+}
+
+.runner {
+    transition: all 1s ease;
+    transform: translateX(0px);
+
+    position: absolute;
+    left: 5px;
+    top: 4px;
+    width: 52px;
+    height: 52px;
+    border-radius: 26px;
+    background-color: rgb(247, 247, 247);
+    box-shadow: 0px 0px 5px 2px #827e7e61, inset 2px 2px 6px #ffffff, inset -2px -2px 6px #adadad;
+}
+
+.runner.open_on-off {
+    transition: all 1s ease;
+    transform: translateX(58px);
+}
+
+
+/* main */
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 390px;
+    height: calc(844px - 100px);
+
+}
+
+.loading-anim {
+    position: absolute;
+    width: 0px;
+    height: 14px;
+    border-radius: 7px;
+    top: 420px;
+    left: 80px;
+    z-index: 50;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgb(184, 184, 184);
+}
+
+.loading-anim.open_light {
+    width: 120px;
+    animation: loading 2.5s linear;
+}
+
+@keyframes loading {
+    0% {
+        width: 0px;
+    }
+
+    100% {
+        width: 120px;
+    }
+}
+
+.main-lamp {
+    object-fit: cover;
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 400px;
+    height: 650px;
+    top: 0px;
+}
+
+.lamp {
+    position: absolute;
+    top: 130px;
+    z-index: 100;
+    filter: drop-shadow(0px 0px 10px #d3d3d3);
+}
+
+.lamp.open_light {
+
+    filter: drop-shadow(0px 0px 10px rgba(211, 211, 211, 0.9));
+}
+
+.lamp-light {
+    position: absolute;
+    top: 130px;
+    right: 43px;
+    z-index: 10;
+    filter: drop-shadow(0px 0px 10px rgba(211, 211, 211, 0.9));
+    opacity: 0;
+    animation: blinkLightInfinite 5s linear infinite;
+}
+
+.name-sayt {
+    position: relative;
+    top: 430px;
+    left: -60px;
+    z-index: 50;
+    font-size: 28px;
+    color: #fff;
+    text-shadow: 0 0 10px rgb(165, 165, 165);
+    opacity: 0;
+    animation: blinkLightInfinite 5s linear infinite;
+}
+
+@keyframes blinkLightInfinite {
+    0% {
+        opacity: 0;
+    }
+
+    79% {
+        opacity: 0;
+    }
+
+    80% {
+        opacity: 0.7;
+    }
+
+    82% {
+        opacity: 0;
+    }
+
+    86% {
+        opacity: 0.5;
+    }
+
+    88% {
+        opacity: 0;
+    }
+
+    91% {
+        opacity: 0.8;
+    }
+
+    92% {
+        opacity: 0.5;
+    }
+
+    95% {
+        opacity: 0.8;
+    }
+
+    96% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.lamp-light.open_light {
+    opacity: 0.8;
+    animation: blinkLight 1s linear;
+
+}
+
+.name-sayt.open_light {
+    opacity: 0.8;
+    animation: blinkLight 1s linear;
+}
+
+@keyframes blinkLight {
+    0% {
+        opacity: 0.7;
+    }
+
+    10% {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 0.5;
+    }
+
+    40% {
+        opacity: 0.1;
+    }
+
+    55% {
+        opacity: 0.8;
+    }
+
+    60% {
+        opacity: 0.5;
+    }
+
+    75% {
+        opacity: 0.8;
+    }
+
+    80% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0.8;
+    }
+}
+
+/*  */
+
+.flake1 {
+    position: absolute;
+    top: 335px;
+    font-size: 1em;
+    user-select: none;
+    pointer-events: none;
+    animation-name: fall1;
+    animation-timing-function: linear;
+}
+
+.flake2 {
+    position: absolute;
+    top: 335px;
+    font-size: 1em;
+    user-select: none;
+    pointer-events: none;
+    animation-name: fall2;
+    animation-timing-function: linear;
+}
+
+@keyframes fall1 {
+    to {
+        transform: translate(-95px, 170px);
+    }
+}
+
+@keyframes fall2 {
+    to {
+        transform: translate(20px, 170px);
+    }
+}
+
+/* сделать ток на телефонах */
+.lower-shadow {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+
+    box-shadow: 0px 0px 50px #646464e0;
+    /* box-shadow: 0 0 30px rgb(253, 0, 0); */
+}
+
+
+
+/* пк */
+@media screen and (min-width: 391px) {
+    body {
+        /* top: 50px !important; */
+        background-color: rgba(184, 184, 184, 0.486);
+    }
+
+    .background-main img {
+        /* на пк */
+        border-radius: 50px;
+    }
+
+    main {
+        /* на пк */
+        border-radius: 50px;
+    }
+
+    .lower-shadow {
+        width: 0;
+    }
+
+}
+
+
+/*  */
+
+
+
+
+
+
+
+/* .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} */
+
+
+
+
+
+/* main */
+/* .fon-main{
+    position: absolute;
+    z-index: -10000;
+}
+.fon-main img{
+    object-fit: cover;
+    filter: blur(3px);
+} */
+/* .form-reg{
+    height: 100vw;
+}
+
+.form-reg form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-reg form input{
+    margin-top: 10px;
+    width: 220px;
+    height: 50px;
+    border-radius: 25px;
+    padding: 20px;
+}
+
+
+.form-reg form :nth-child(1){
+
+}
+.form-reg form :nth-child(2){
+}
+.form-reg form :nth-child(3){
+}
+.form-reg form :nth-child(4){
+} */
+
+
+
+
+
+/*  */
+
+
+
+
+/* .container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.element {
+    position: relative;
+    z-index: -1;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.ring {
+    position: absolute;
+    z-index: 1000;
+    width: 80%;
+    height: 80%;
+    top: 20;
+    left: 20;
+}
+
+.ring-path {
+    fill: none;
+    stroke: rgba(255, 0, 0, 0.5);
+    stroke-width: 15;
+    animation: morph 5s infinite ease-in-out;
+}
+
+@keyframes morph {
+    0%, 100% {
+        d: path("M 100,20 A 80,80 0 1,1 100,180 A 80,80 0 1,1 100,20");
+        stroke-width: 5;
+    }
+    25% {
+        d: path("M 100,20 A 10,80 0 1,1 100,180 A 10,80 0 1,1 100,20");
+        stroke-width: 15;
+    }
+    50% {
+        d: path("M 100,20 A -80,80 0 1,1 100,180 A -80,80 0 1,1 100,20");
+        stroke-width: 5;
+    }
+    75% {
+        d: path("M 100,20 A -10,80 0 1,1 100,180 A -10,80 0 1,1 100,20");
+        stroke-width: 15;
+    }
+} */
