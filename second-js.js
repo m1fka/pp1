@@ -94,8 +94,8 @@ headerOnOff.addEventListener('click', () => {
 
 
 function changePage() {
-    window.location.href = 'index.html';
-    // window.location.href = 'index.php';
+    // window.location.href = 'index.html';
+    window.location.href = 'index.php';
 }
 
 
